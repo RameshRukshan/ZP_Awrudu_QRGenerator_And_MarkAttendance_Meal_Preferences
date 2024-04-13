@@ -1,4 +1,5 @@
 <?php include_once('../inc/header.php'); ?>
+<title>Add New</title>
  <?php include_once('../config/config.php'); ?>
  <div class="container-fluid" style="background-color: #8c3a14; padding: 50px; width: 100%; height: 100vh;">
  	<div class="container">
@@ -45,7 +46,7 @@
  					</div>
 					 <div class="form-group">
  						<label>WhatsApp Number:</label>
- 						<input type="text" name="wano" class="form-control" placeholder="716980110">
+ 						<input type="text" name="wano" class="form-control" value="+94" placeholder="+94716980110">
  					</div>
  					<div class="form-group">
  						<label>Attendance</label>
