@@ -9,16 +9,15 @@
  			<div class="col-md-4 mx-auto" id="myform">
 
 			 	<?php
-				
-
 				if(isset($_POST["submit"])) {
+					$del_id = $_POST["del_id"];
 					$first_name = $_POST["first_name"];
 					$last_name = $_POST["last_name"];
 					$whatsapp_no = $_POST["wano"];
 					$attendance = $_POST["attendance"];
 					$meal = $_POST["meal"];
 
-					$sql = "INSERT INTO users (first_name, last_name, whatsapp, attended, meal) VALUES ('$first_name', '$last_name','$whatsapp_no', '$attendance', '$meal')";
+					$sql = "INSERT INTO users (delegate_id ,first_name, last_name, whatsapp, attended, meal) VALUES ('$del_id','$first_name', '$last_name','$whatsapp_no', '$attendance', '$meal')";
 					$conn->query($sql);
 
 					if ($conn->affected_rows > 0) {
@@ -30,12 +29,14 @@
 						echo "Error: ". $sql. "<br>". $conn->error;
 					}
 				}
-
 				$conn->close();
 				?>
 
  				<form action="#" method="POST" style="margin: 0 auto; padding: 40px;" enctype="multipart/form-data">
-				 	
+				 <div class="form-group">
+ 						<label>Delegate ID:</label>
+ 						<input type="text" name="del_id" class="form-control" placeholder="UOR-001">
+ 					</div>
  					<div class="form-group">
  						<label>First Name:</label>
  						<input type="text" name="first_name" class="form-control" placeholder="Enter First Name">

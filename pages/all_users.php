@@ -22,6 +22,7 @@
                     <thead>
                         <tr>
                             <th>Student ID</th>
+                            <th>Delegate ID</th>
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Attended</th>
@@ -40,10 +41,11 @@
                                ?>
                                 <tr>
                                     <td><?php echo $rs['id'];?></td>
+                                    <td><?php echo $rs['delegate_id'];?></td>
                                     <td><?php echo $rs['first_name'];?></td>
                                     <td><?php echo $rs['last_name'];?></td>
-                                    <td> <?php echo $rs['attended'];?></td>
-                                    <td> <?php echo $rs['meal'];?></td>
+                                    <td><?php echo $rs['attended'];?></td>
+                                    <td><?php echo $rs['meal'];?></td>
                                     <td><a href="https://wa.me/<?php echo $rs['whatsapp'];?>?txt=https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=<?php echo $rs['id'];?>" target="_blank">WhatsApp</a></td>
                                     <td>
                                         <a href="https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=<?php echo $rs['id'];?>" target="_blank" onclick="createQR(<?php echo $rs['id'];?>)">Generate</a>
