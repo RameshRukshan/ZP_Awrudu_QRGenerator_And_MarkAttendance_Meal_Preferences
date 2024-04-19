@@ -44,7 +44,7 @@
                                     <td><?php echo $rs['last_name'];?></td>
                                     <td> <?php echo $rs['attended'];?></td>
                                     <td> <?php echo $rs['meal'];?></td>
-                                    <td><a href="https://wa.me/<?php echo $rs['whatsapp'];?>" target="_blank">WhatsApp</a></td>
+                                    <td><a href="https://wa.me/<?php echo $rs['whatsapp'];?>?txt=https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=<?php echo $rs['id'];?>" target="_blank">WhatsApp</a></td>
                                     <td>
                                         <a href="https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=<?php echo $rs['id'];?>" target="_blank" onclick="createQR(<?php echo $rs['id'];?>)">Generate</a>
                                     </td>
