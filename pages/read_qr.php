@@ -12,6 +12,26 @@ if (isset($_GET["decodeText"])) {
             $sql = "UPDATE users SET attended='yes' WHERE id=$decodeText";
             $conn->query($sql);
 
+            if ($row["meal"] == "veg" || $row["meal"] == "nonveg") {
+
+                $meal_preference = $row["meal"];
+                if ($meal_preference == "veg") {
+                    $meal_message = "Preference: Vegetarian";
+                } else if ($meal_preference == "nonveg") {
+                    $meal_message = "Preference: Non-Vegetarian";
+                }
+        
+                $sql = "UPDATE users SET meal='taken' WHERE id=$decodeText";
+                $conn->query($sql);
+            }else if($row["meal"] == "noneed"){
+                $meal_message = "Meal not included";
+            }else if($row["meal"] == "taken"){
+                $meal_message = "Already taken meal";
+            } else {
+                $meal_message = "Invalid meal status";
+            }
+            echo "<script>alert('$meal_message');</script>";
+
             echo "<script>alert('Attendance marked successfully!');</script>";
 			header("Refresh: 1; url=read_qr.php");
             exit();
@@ -25,6 +45,7 @@ if (isset($_GET["decodeText"])) {
 		header("Refresh: 1; url=read_qr.php");
         exit();
     }
+
 }
 
 $conn->close();
