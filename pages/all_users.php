@@ -2,7 +2,69 @@
 <?php include_once('config/config.php');?>
 <div class="container-fluid" style="background-color: #8c3a14; padding: 50px; width: 100%; height: 100vh;">
     <div class="container">
-        
+
+    <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-4">
+
+                    <?php
+                      $sql1 = "SELECT COUNT(*) FROM users WHERE attended = 'yes'";
+                      $result1 = $conn->query($sql1);
+                      
+                      if ($result1 === false) {
+                          // handle error
+                          echo "Error: ". $conn->error;
+                      } else {
+                          $row = $result1->fetch_array();
+                          $attended_count = $row[0];
+                      }
+
+                      $sql2 = "SELECT COUNT(*) FROM users";
+                      $result2 = $conn->query($sql2);
+                      
+                      if ($result2 === false) {
+                          // handle error
+                          echo "Error: ". $conn->error;
+                      } else {
+                          $row = $result2->fetch_array();
+                          $total_count = $row[0];
+                      }
+
+                      $sql3 = "SELECT COUNT(*) FROM users where meal = 'nonveg'";
+                      $result3 = $conn->query($sql3);
+                      
+                      if ($result3 === false) {
+                          // handle error
+                          echo "Error: ". $conn->error;
+                      } else {
+                          $row = $result3->fetch_array();
+                          $remaining_nonveg = $row[0];
+                      }
+
+                      $sql4 = "SELECT COUNT(*) FROM users where meal = 'veg'";
+                      $result4 = $conn->query($sql4);
+                      
+                      if ($result4 === false) {
+                          // handle error
+                          echo "Error: ". $conn->error;
+                      } else {
+                          $row = $result4->fetch_array();
+                          $remaining_veg = $row[0];
+                      }
+
+                      ?>
+
+                        <h4 style="color: white; padding: 20px;">Attendance : <?php echo $attended_count ?>/<?php echo $total_count?></h4>
+                    </div>
+                    <div class="col-md-4">
+                        <h4 style="color: white; padding: 20px;">Remaining Non-Veg : <?php echo $remaining_nonveg ?></h4>
+                    </div>
+                    <div class="col-md-4">
+                        <h4 style="color: white; padding: 20px;">Remaining Veg : <?php echo $remaining_veg ?></h4>
+                    </div>
+                </div>
+            </div>
+
         <div class="row" style="margin: 0 auto; padding: 40px;" id="myform">
             <div class="col-md-12">
                 <div class="row">
@@ -66,6 +128,9 @@
             </div>
         </div>
     </div>
+
+    
+
 </div>
 <?php include_once('inc/footer.php');?>
 
