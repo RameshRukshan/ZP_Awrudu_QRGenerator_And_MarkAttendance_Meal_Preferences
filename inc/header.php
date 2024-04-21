@@ -11,6 +11,12 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
  <style>
+@media (max-width: 600px) {
+            table {
+                display: none;
+            }
+        }
+  
   body{
     display: flex; 
 	margin: 0; 

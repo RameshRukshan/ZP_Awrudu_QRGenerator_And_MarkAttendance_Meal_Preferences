@@ -80,7 +80,7 @@
                 </div>
             </div>
             <div class="col-md-12">
-                <table class="table table-hover" style="background-color: white; margin-top: 20px;">
+                <table class="table table-hover" style="background-color: white; margin-top: 20px; @media (max-width: 600px) { display: none; }">
                     <thead>
                         <tr>
                             <th>Student ID</th>
