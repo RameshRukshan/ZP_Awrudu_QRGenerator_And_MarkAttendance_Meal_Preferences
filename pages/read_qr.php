@@ -23,6 +23,7 @@ if (isset($_GET["decodeText"])) {
         
                 $sql = "UPDATE users SET meal='taken' WHERE id=$decodeText";
                 $conn->query($sql);
+                
             }else if($row["meal"] == "noneed"){
                 $meal_message = "Meal not included";
             }else if($row["meal"] == "taken"){
